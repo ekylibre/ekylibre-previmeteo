@@ -1,0 +1,99 @@
+previmeteo:
+  davis_vantage_vue_adsl:
+    label: "Davis Vantage Vue ADSL"
+    description: "Station météo Davis Vantage Vue ADSL"
+    indicators:
+      - temperature
+      - hygrometry
+      - atmospheric_pressure
+      - wind_gust
+      - rainfall
+      - wind_speed
+      - wind_direction
+      - average_temperature
+      - minimal_temperature
+      - maximal_temperature
+      - maximal_rainfall
+      - average_atmospheric_pressure
+      - minimal_atmospheric_pressure
+      - maximal_atmospheric_pressure
+      - average_hygrometry
+      - minimal_hygrometry
+      - maximal_hygrometry
+      - average_wind_speed
+      - average_wind_direction
+    controller: "Weather::Previmeteo::GenericController"
+  davis_vantage_vue_adsl_pyranometer:
+    label: "Davis Vantage Vue ADSL + Pyranomètre"
+    description: "Station météo Davis Vantage Vue ADSL + Option Pyranomètre"
+    indicators:
+      - temperature
+      - hygrometry
+      - atmospheric_pressure
+      - wind_gust
+      - rainfall
+      - wind_speed
+      - wind_direction
+      - average_temperature
+      - minimal_temperature
+      - maximal_temperature
+      - maximal_rainfall
+      - average_atmospheric_pressure
+      - minimal_atmospheric_pressure
+      - maximal_atmospheric_pressure
+      - average_hygrometry
+      - minimal_hygrometry
+      - maximal_hygrometry
+      - average_wind_speed
+      - average_wind_direction
+      - pyranometry
+    controller: "Weather::Previmeteo::GenericController"
+  davis_vantage_vue_gprs:
+    label: "Davis Vantage Vue GPRS"
+    description: "Station météo Davis Vantage Vue GPRS"
+    indicators:
+      - temperature
+      - hygrometry
+      - atmospheric_pressure
+      - wind_gust
+      - rainfall
+      - wind_speed
+      - wind_direction
+      - average_temperature
+      - minimal_temperature
+      - maximal_temperature
+      - maximal_rainfall
+      - average_atmospheric_pressure
+      - minimal_atmospheric_pressure
+      - maximal_atmospheric_pressure
+      - average_hygrometry
+      - minimal_hygrometry
+      - maximal_hygrometry
+      - average_wind_speed
+      - average_wind_direction
+    controller: "Weather::Previmeteo::GenericController"
+  davis_vantage_vue_gprs_pyranometer:
+    label: "Davis Vantage Vue GPRS + Pyranomètre"
+    description: "Station météo Davis Vantage Vue GPRS + Option Pyranomètre"
+    indicators:
+      - temperature
+      - hygrometry
+      - atmospheric_pressure
+      - wind_gust
+      - rainfall
+      - wind_speed
+      - wind_direction
+      - average_temperature
+      - minimal_temperature
+      - maximal_temperature
+      - maximal_rainfall
+      - average_atmospheric_pressure
+      - minimal_atmospheric_pressure
+      - maximal_atmospheric_pressure
+      - average_hygrometry
+      - minimal_hygrometry
+      - maximal_hygrometry
+      - average_wind_speed
+      - average_wind_direction
+      - pyranometry
+    controller: "Weather::Previmeteo::GenericController"

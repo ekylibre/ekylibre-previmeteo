@@ -1,0 +1,3 @@
+= Weather
+
+Extension pour communiquer avec les objets connectés météo
