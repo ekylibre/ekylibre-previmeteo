@@ -6,6 +6,6 @@ module Weather
   end
 
   autoload :Previmeteo, 'weather/previmeteo'
+  ActiveSensor::Equipment.register_many(Weather.root.join('config', 'sensors.yml'))
 end
 
-ActiveSensor::Equipment.register_many(Weather.root.join('config', 'sensors.yml'))

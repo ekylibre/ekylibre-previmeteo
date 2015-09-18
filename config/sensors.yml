@@ -6,7 +6,7 @@ previmeteo:
       - temperature
       - hygrometry
       - atmospheric_pressure
-      - wind_gust
+      - wind_gust_count
       - rainfall
       - wind_speed
       - wind_direction
@@ -30,7 +30,7 @@ previmeteo:
       - temperature
       - hygrometry
       - atmospheric_pressure
-      - wind_gust
+      - wind_gust_count
       - rainfall
       - wind_speed
       - wind_direction
@@ -55,7 +55,7 @@ previmeteo:
       - temperature
       - hygrometry
       - atmospheric_pressure
-      - wind_gust
+      - wind_gust_count
       - rainfall
       - wind_speed
       - wind_direction
@@ -79,7 +79,7 @@ previmeteo:
       - temperature
       - hygrometry
       - atmospheric_pressure
-      - wind_gust
+      - wind_gust_count
       - rainfall
       - wind_speed
       - wind_direction
