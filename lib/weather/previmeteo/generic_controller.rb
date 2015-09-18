@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'net/http'
 
 # Use has_parameter to specify access parameters to ActiveSensor, allowing user to set these parameters.
@@ -15,12 +16,6 @@ class Weather::Previmeteo::GenericController < ActiveSensor::Controller
   has_parameter :id_station
   has_parameter :url, default: 'http://my.previmeteo.com/api/station.php'
 
-  def initialize
-    # Use helpers to add custom parameters:
-    # set_parameter(:custom_var, 'val' )
-    # get_parameter(:custom_var) => 'val'
-  end
-
   def find_period(started_at, stopped_at)
     if started_at.is_a? Time and stopped_at.is_a? Time
       period = ((stopped_at - started_at) / 1.hour).round.to_i
@@ -31,15 +26,18 @@ class Weather::Previmeteo::GenericController < ActiveSensor::Controller
     period
   end
 
-  # ActiveSensor::Controller sends an +options+ hash, with *started_at* and *stopped_at* as delimiters for a periodic summary (Time ruby objects). If these keys aren't supplied, please feel free to return instant values. Dates are formatted in UTC.
+  # ActiveSensor::Controller sends an +options+ hash, with *started_at* and
+  # *stopped_at* as delimiters for a periodic summary (Time ruby objects).
+  # If these keys aren't supplied, please feel free to return instant values.
+  # Dates are formatted in UTC.
   # Example: 2015-09-14 17:12:40 +0200
   def retrieve(options = {})
 
     # Get parameters to connect sensor
-    id = get_parameter :id
-    api = get_parameter :api
-    id_station = get_parameter :id_station
-    url = get_parameter :url
+    id = parameters[:id]
+    api = parameters[:api]
+    id_station = parameters[:id_station]
+    url = parameters[:url]
 
     started_at = options.try(:[], :started_at)
     stopped_at = options.try(:[], :stopped_at)

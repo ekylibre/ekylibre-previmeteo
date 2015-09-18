@@ -1,3 +1,11 @@
 module Weather
-  autoload :Previmeteo, "#{__dir__}/weather/previmeteo.rb"
+  class << self
+    def root
+      Ekylibre.root.join('plugins', 'weather')
+    end
+  end
+
+  autoload :Previmeteo, 'weather/previmeteo'
 end
+
+ActiveSensor::Equipment.register_many(Weather.root.join('config', 'sensors.yml'))
