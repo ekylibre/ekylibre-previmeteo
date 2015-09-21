@@ -73,7 +73,7 @@ class Weather::Previmeteo::GenericController < ActiveSensor::Controller
     end
 
     if json_response.key? :error
-      return {status: :sensor_error, message: json_response[:cause]} if json_response.key? :cause
+      return { status: :sensor_error, message: json_response[:cause] } if json_response.key? :cause
     end
 
     values = {}
@@ -99,7 +99,7 @@ class Weather::Previmeteo::GenericController < ActiveSensor::Controller
         solar_irradiance: [:sr, :watt_per_square_meter]
       }
       # Timestamp your report with time key: Use GMT/UTC.
-      report[:sampled_at] = Time.utc(*store[:time_gmt].split(%r([^\d]+))).localtime
+      report[:sampled_at] = Time.utc(*store[:time_gmt].split(/[^\d]+/)).localtime
     else
       store = data[:summary] || {}
       report[:sampling_temporal_mode] = 'period'
@@ -142,8 +142,8 @@ class Weather::Previmeteo::GenericController < ActiveSensor::Controller
 
   # Find period hour_duration
   def find_period(started_at, stopped_at)
-    return 0 if started_at.nil? or stopped_at.nil?
-    if started_at.is_a?(Time) and stopped_at.is_a?(Time)
+    return 0 if started_at.nil? || stopped_at.nil?
+    if started_at.is_a?(Time) && stopped_at.is_a?(Time)
       period = ((stopped_at - started_at) / 1.hour).round.to_i
     else
       period = ((Time.parse(stopped_at) - Time.parse(started_at)) / 1.hour).round.to_i
@@ -151,5 +151,4 @@ class Weather::Previmeteo::GenericController < ActiveSensor::Controller
     period = 24 if period > 24
     period
   end
-
 end
