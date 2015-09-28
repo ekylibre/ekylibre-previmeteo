@@ -23,37 +23,9 @@ previmeteo:
       - average_wind_speed
       - average_wind_direction
     controller: "Weather::Previmeteo::GenericController"
-  davis_vantage_vue_adsl_pyranometer:
-    label: "Davis Vantage Vue ADSL + Pyranomètre"
-    description: "Station météo Davis Vantage Vue ADSL + Option Pyranomètre"
-    indicators:
-      - temperature
-      - relative_humidity
-      - atmospheric_pressure
-      # - wind_gust_count
-      # - rainfall
-      - wind_speed
-      - wind_direction
-      - solar_irradiance
-      - average_temperature
-      - minimal_temperature
-      - maximal_temperature
-      - maximal_rainfall
-      - average_atmospheric_pressure
-      - minimal_atmospheric_pressure
-      - maximal_atmospheric_pressure
-      - average_relative_humidity
-      - minimal_relative_humidity
-      - maximal_relative_humidity
-      - average_solar_irradiance
-      - minimal_solar_irradiance
-      - maximal_solar_irradiance
-      - average_wind_speed
-      - average_wind_direction
-    controller: "Weather::Previmeteo::GenericController"
-  davis_vantage_vue_gprs:
-    label: "Davis Vantage Vue GPRS"
-    description: "Station météo Davis Vantage Vue GPRS"
+  davis_vantage_pro2_gprs:
+    label: "Davis Vantage Pro 2 GPRS"
+    description: "Station météo Davis Vantage Pro 2 GPRS"
     indicators:
       - temperature
       - relative_humidity
@@ -75,18 +47,18 @@ previmeteo:
       - average_wind_speed
       - average_wind_direction
     controller: "Weather::Previmeteo::GenericController"
-  davis_vantage_vue_gprs_pyranometer:
-    label: "Davis Vantage Vue GPRS + Pyranomètre"
-    description: "Station météo Davis Vantage Vue GPRS + Option Pyranomètre"
+  davis_vantage_pro2_gprs_pyranometer:
+    label: "Davis Vantage Pro 2 GPRS + Pyranomètre"
+    description: "Station météo Davis Vantage Pro 2 GPRS + Option Pyranomètre"
     indicators:
       - temperature
       - relative_humidity
       - atmospheric_pressure
       # - wind_gust_count
       # - rainfall
-      - solar_irradiance
       - wind_speed
       - wind_direction
+      - solar_irradiance
       - average_temperature
       - minimal_temperature
       - maximal_temperature
