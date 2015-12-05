@@ -132,7 +132,7 @@ class Weather::Previmeteo::GenericController < ActiveSensor::Controller
     latitude = info[:lat]
     longitude = info[:lon]
     if latitude && longitude
-      report[:geolocation] = Charta::Geometry.point(latitude, longitude, 4326)
+      report[:geolocation] = Charta.new_point(latitude, longitude, 4326)
     end
     report[:values] = values
     report[:status] = :ok
