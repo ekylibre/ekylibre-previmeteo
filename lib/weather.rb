@@ -1,7 +1,7 @@
 module Weather
   class << self
     def root
-      Ekylibre.root.join('plugins', 'weather')
+      Pathname.new(__FILE__).expand_path.dirname.dirname
     end
   end
 
