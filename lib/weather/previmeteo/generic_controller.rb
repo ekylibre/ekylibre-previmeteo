@@ -1,4 +1,4 @@
-# coding: utf-8
+
 require 'net/http'
 
 # Use has_parameter to specify access parameters to ActiveSensor, allowing user to set these parameters.
@@ -88,15 +88,15 @@ class Weather::Previmeteo::GenericController < ActiveSensor::Controller
       store = data[:last] || {}
       report[:sampling_temporal_mode] = 'instant'
       format = {
-        temperature: [:temp, :celsius],
-        relative_humidity: [:rh, :percent],
-        atmospheric_pressure: [:press, :hectopascal],
+        temperature: %i[temp celsius],
+        relative_humidity: %i[rh percent],
+        atmospheric_pressure: %i[press hectopascal],
         # Maximal wind speed on last 5 minutes... Not instant
         # wind_gust_count: [:wind_gust],
         # rainfall: [:rain, :millimeter_per_hour],
-        wind_speed: [:wind_ave, :meter_per_second],
-        wind_direction: [:wind_dir, :degree],
-        solar_irradiance: [:sr, :watt_per_square_meter]
+        wind_speed: %i[wind_ave meter_per_second],
+        wind_direction: %i[wind_dir degree],
+        solar_irradiance: %i[sr watt_per_square_meter]
       }
       # Timestamp your report with time key: Use GMT/UTC.
       report[:sampled_at] = Time.utc(*store[:time_gmt].split(/[^\d]+/)).localtime
@@ -104,23 +104,23 @@ class Weather::Previmeteo::GenericController < ActiveSensor::Controller
       store = data[:summary] || {}
       report[:sampling_temporal_mode] = 'period'
       format = {
-        average_temperature: [:temp_ave, :celsius],
-        minimal_temperature: [:temp_min, :celsius],
-        maximal_temperature: [:temp_max, :celsius],
+        average_temperature: %i[temp_ave celsius],
+        minimal_temperature: %i[temp_min celsius],
+        maximal_temperature: %i[temp_max celsius],
         # maximal_rainfall: [:rain_max, :millimeter_per_hour],
-        average_atmospheric_pressure: [:press_ave, :hectopascal],
-        minimal_atmospheric_pressure: [:press_min, :hectopascal],
-        maximal_atmospheric_pressure: [:press_max, :hectopascal],
-        average_relative_humidity: [:rh_ave, :percent],
-        minimal_relative_humidity: [:rh_min, :percent],
-        maximal_relative_humidity: [:rh_max, :percent],
-        average_wind_direction: [:wind_dir_ave, :degree],
-        average_wind_speed: [:wind_ave, :meter_per_second],
-        minimal_wind_speed: [:wind_min, :meter_per_second],
-        maximal_wind_speed: [:wind_max, :meter_per_second],
-        average_solar_irradiance: [:sr_ave, :watt_per_square_meter],
-        minimal_solar_irradiance: [:sr_min, :watt_per_square_meter],
-        maximal_solar_irradiance: [:sr_max, :watt_per_square_meter]
+        average_atmospheric_pressure: %i[press_ave hectopascal],
+        minimal_atmospheric_pressure: %i[press_min hectopascal],
+        maximal_atmospheric_pressure: %i[press_max hectopascal],
+        average_relative_humidity: %i[rh_ave percent],
+        minimal_relative_humidity: %i[rh_min percent],
+        maximal_relative_humidity: %i[rh_max percent],
+        average_wind_direction: %i[wind_dir_ave degree],
+        average_wind_speed: %i[wind_ave meter_per_second],
+        minimal_wind_speed: %i[wind_min meter_per_second],
+        maximal_wind_speed: %i[wind_max meter_per_second],
+        average_solar_irradiance: %i[sr_ave watt_per_square_meter],
+        minimal_solar_irradiance: %i[sr_min watt_per_square_meter],
+        maximal_solar_irradiance: %i[sr_max watt_per_square_meter]
       }
     end
     format.each do |indicator_name, (key, unit)|
@@ -143,11 +143,11 @@ class Weather::Previmeteo::GenericController < ActiveSensor::Controller
   # Find period hour_duration
   def find_period(started_at, stopped_at)
     return 0 if started_at.nil? || stopped_at.nil?
-    if started_at.is_a?(Time) && stopped_at.is_a?(Time)
-      period = ((stopped_at - started_at) / 1.hour).round.to_i
-    else
-      period = ((Time.parse(stopped_at) - Time.parse(started_at)) / 1.hour).round.to_i
-    end
+    period = if started_at.is_a?(Time) && stopped_at.is_a?(Time)
+               ((stopped_at - started_at) / 1.hour).round.to_i
+             else
+               ((Time.parse(stopped_at) - Time.parse(started_at)) / 1.hour).round.to_i
+             end
     period = 24 if period > 24
     period
   end
