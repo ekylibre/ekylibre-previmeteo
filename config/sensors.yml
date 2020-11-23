@@ -22,7 +22,7 @@ previmeteo:
       - maximal_relative_humidity
       - average_wind_speed
       - average_wind_direction
-    controller: "Weather::Previmeteo::GenericController"
+    controller: "Ekylibre::Previmeteo::GenericController"
   davis_vantage_vue_adsl_pyranometer:
     label: "Davis Vantage Vue ADSL + Pyranomètre"
     description: "Station météo Davis Vantage Vue ADSL + Option Pyranomètre"
@@ -50,7 +50,7 @@ previmeteo:
       - maximal_solar_irradiance
       - average_wind_speed
       - average_wind_direction
-    controller: "Weather::Previmeteo::GenericController"
+    controller: "Ekylibre::Previmeteo::GenericController"
   davis_vantage_vue_gprs:
     label: "Davis Vantage Vue GPRS"
     description: "Station météo Davis Vantage Vue GPRS"
@@ -74,7 +74,7 @@ previmeteo:
       - maximal_relative_humidity
       - average_wind_speed
       - average_wind_direction
-    controller: "Weather::Previmeteo::GenericController"
+    controller: "Ekylibre::Previmeteo::GenericController"
   davis_vantage_vue_gprs_pyranometer:
     label: "Davis Vantage Vue GPRS + Pyranomètre"
     description: "Station météo Davis Vantage Vue GPRS + Option Pyranomètre"
@@ -102,4 +102,4 @@ previmeteo:
       - maximal_solar_irradiance
       - average_wind_speed
       - average_wind_direction
-    controller: "Weather::Previmeteo::GenericController"
+    controller: "Ekylibre::Previmeteo::GenericController"
