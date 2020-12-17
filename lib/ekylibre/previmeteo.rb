@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'ekylibre-plugin_system'
+
 module Ekylibre
   module Previmeteo
     autoload :GenericController, "#{__dir__}/previmeteo/generic_controller"
