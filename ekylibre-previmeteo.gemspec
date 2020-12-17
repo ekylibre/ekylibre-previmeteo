@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
     raise StandardError.new("RubyGems 2.0 or newer is required to protect against public gem pushes.")
   end
 
-  spec.files = Dir.glob(%w[lib/**/*.rb bin/**/* *.gemspec Gemfile Rakefile *.rdoc config/**/*])
+  spec.files = Dir.glob(%w[{config,lib}/**/* *.gemspec Gemfile Rakefile *.rdoc])
 
   spec.require_paths = ["lib"]
 
